@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
 import { Header } from "@/components/layout/header";
@@ -69,7 +70,9 @@ function SuccessContent() {
 export default function CheckoutSuccessPage() {
   return (
     <ReduxProvider>
-      <SuccessContent />
+      <Suspense fallback={null}>
+        <SuccessContent />
+      </Suspense>
     </ReduxProvider>
   );
 }
