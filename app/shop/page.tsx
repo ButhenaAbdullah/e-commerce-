@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Filter, SlidersHorizontal, X } from "lucide-react";
 import { ReduxProvider } from "@/components/providers/redux-provider";
@@ -329,7 +329,9 @@ function ShopContent() {
 export default function ShopPage() {
   return (
     <ReduxProvider>
-      <ShopContent />
+      <Suspense fallback={null}>
+        <ShopContent />
+      </Suspense>
     </ReduxProvider>
   );
 }
